@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/06 11:56:20 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/06 19:04:11 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,10 @@
 
 int	main(void)
 {
-	ft_printf("hello\n");
+	void	*mlx;
+
+	mlx = mlx_init();
+	if (!mlx)
+		return (1);
+	return (0);
 }
