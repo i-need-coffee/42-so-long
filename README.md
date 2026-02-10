@@ -17,6 +17,7 @@ This article helped me understand what the project is all about and where to sta
 - https://www.x.org/releases/current/doc/libX11/libX11/libX11.html
 - https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#installation
 - https://42-cursus.gitbook.io/guide/2-rank-02/so_long
+- https://sethbb.itch.io/32rogues
 
 Used AI for :
 - Understanding how to use the MiniLibX inside my project
