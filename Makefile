@@ -6,7 +6,7 @@
 #    By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/02/06 14:27:08 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/02/10 11:51:19 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,7 @@ MLX_FLAGS	= -lXext -lX11 -lm -lbsd
 
 # **************************************************************************** #
 
-all: $(LIBFT) $(MLX) $(NAME)
+all: $(NAME)
 
 $(LIBFT):
 	@echo "📚 Building Libft..."
@@ -41,7 +41,7 @@ $(MLX):
 	@echo "🖼️  Building MiniLibX..."
 	@$(MAKE) -C $(MLX_DIR) --no-print-directory
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) $(LIBFT) $(MLX)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT) $(MLX) $(MLX_FLAGS) -o $(NAME)
 	@echo "🚀 So_long compiled successfully!"
 
