@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/10 17:24:17 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/12 14:32:48 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,12 @@ int	main(void)
 {
 	t_mlx_data	mlx;
 	void		*img;
+	void		*img2;
 	int			img_width;
 	int			img_height;
 	int			win_x;
 	int			win_y;
-	int			x;
-	int			y;
+
 
 	mlx.connect = mlx_init();
 	if (!mlx.connect)
@@ -49,17 +49,15 @@ int	main(void)
 		free(mlx.connect);
 		return (1);
 	}
-	img = mlx_xpm_file_to_image(mlx.connect, "./textures/hero.xpm",
+	img = mlx_xpm_file_to_image(mlx.connect, "./textures/floor.xpm",
 			&img_width, &img_height);
 	if (!img)
 		return (1);
-	x = 0;
-	y = 0;
-	while (x < win_x)
-	{
-		mlx_put_image_to_window(mlx.connect, mlx.window, img, x, y);
-		x += 64;
-	}
+	img2 = mlx_xpm_file_to_image(mlx.connect, "./textures/item.xpm",
+			&img_width, &img_height);
+	mlx_put_image_to_window(mlx.connect, mlx.window, img, 0, 0);
+	mlx_put_image_to_window(mlx.connect, mlx.window, img2, 0, 0);
+	mlx_put_image_to_window(mlx.connect, mlx.window, img, 64, 0);
 	mlx_key_hook(mlx.window, handle_input, &mlx);
 	mlx_loop(mlx.connect);
 	mlx_destroy_window(mlx.connect, mlx.window);

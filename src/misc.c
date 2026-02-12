@@ -1,29 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   misc.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/12 15:11:15 by sjolliet         ###   ########.fr       */
+/*   Created: 2026/02/12 15:05:54 by sjolliet          #+#    #+#             */
+/*   Updated: 2026/02/12 15:07:49 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include <libft.h>
-# include <mlx.h>
-# include <X11/keysym.h>
-# include <X11/X.h>
-
-typedef struct s_mlx_data
+void	error_and_exit(char *error_message)
 {
-	void	*connect;
-	void	*window;
-}			t_mlx_data;
-
-void	error_and_exit(char *error_message);
-
-#endif
+	ft_printf("Error\n");
+	ft_printf("%s\n", error_message);
+	exit(1);
+}

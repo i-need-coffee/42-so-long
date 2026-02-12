@@ -9,8 +9,8 @@ _This project has been created as part of the 42 curriculum by sjolliet_
 ## Resources
 
 - **Introduction to the project**  
-https://medium.com/@jalal92/understanding-the-minilibx-a-practical-dive-into-x-window-programming-api-in-c-cb8a6f72bec3  
-This article helped me understand what the project is all about and where to start.
+  https://medium.com/@jalal92/understanding-the-minilibx-a-practical-dive-into-x-window-programming-api-in-c-cb8a6f72bec3  
+  This article helped me understand what the project is all about and where to start.
 
 - https://github.com/42paris/minilibx-linux
 - https://harm-smits.github.io/42docs/libs/minilibx
@@ -20,4 +20,7 @@ This article helped me understand what the project is all about and where to sta
 - https://sethbb.itch.io/32rogues
 
 Used AI for :
-- Understanding how to use the MiniLibX inside my project
+
+- Use gimp to have a correct image format for my textures
+- AI helped me to create the makefile and link the library
+- Asked AI how to render the texttures, as in if my item, hero or monster images should have a background or could just be added on top of the floor (game design related question)

@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+         #
+#    By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/02/10 11:51:19 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/02/12 15:09:27 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ CFLAGS		= -Wall -Wextra -Werror -g -Iinclude -Ilibft/include -Iminilibx
 
 SRC_DIR		= src
 SRCS		= \
-	$(SRC_DIR)/so_long.c
+	$(SRC_DIR)/main.c \
+	$(SRC_DIR)/misc.c
 
 OBJ_DIR		= obj
 OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/12 15:11:15 by sjolliet         ###   ########.fr       */
+/*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
+/*   Updated: 2026/02/12 15:16:02 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
+#include "so_long.h"
 
-# include <libft.h>
-# include <mlx.h>
-# include <X11/keysym.h>
-# include <X11/X.h>
-
-typedef struct s_mlx_data
+int	main(int argc, char **argv)
 {
-	void	*connect;
-	void	*window;
-}			t_mlx_data;
-
-void	error_and_exit(char *error_message);
-
-#endif
+	if (argc != 2)
+		error_and_exit("The program should have one parameter (.ber file)");
+	
+	return (0);
+}
