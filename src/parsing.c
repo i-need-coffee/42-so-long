@@ -1,21 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/12 18:13:06 by sjolliet         ###   ########.fr       */
+/*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
+/*   Updated: 2026/02/12 22:40:00 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	main(int argc, char **argv)
+void	parse_map(char *file)
 {
-	if (argc != 2)
-		error_and_exit("The program should have one parameter (.ber file)");
-	parse_map(argv[1]);
-	return (0);
+	char	*ext;
+
+	ext = ft_strrchr(file, '.');
+	if (!ext || ft_strncmp(ext, ".ber", ft_strlen(ext)) != 0)
+		error_and_exit("Parameter passed is not a .ber file");
 }
