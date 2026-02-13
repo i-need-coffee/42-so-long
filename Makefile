@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+         #
+#    By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/02/12 15:41:35 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/02/13 13:28:21 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 

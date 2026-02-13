@@ -3,20 +3,28 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/12 18:17:05 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/13 14:17:12 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef SO_LONG_H
 # define SO_LONG_H
 
+# include <X11/X.h>
+# include <X11/keysym.h>
+# include <fcntl.h>
 # include <libft.h>
 # include <mlx.h>
-# include <X11/keysym.h>
-# include <X11/X.h>
+
+typedef struct s_map_data
+{
+	char	**data;
+	int		size_x;
+	int		size_y;
+}			t_map_data;
 
 typedef struct s_mlx_data
 {
@@ -24,7 +32,7 @@ typedef struct s_mlx_data
 	void	*window;
 }			t_mlx_data;
 
-void	error_and_exit(char *error_message);
-void	parse_map(char *file);
+void		error_and_exit(char *error_message);
+void		parse_map(char *file);
 
 #endif
