@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/13 14:17:12 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/14 21:30:53 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct s_mlx_data
 }			t_mlx_data;
 
 void		error_and_exit(char *error_message);
-void		parse_map(char *file);
+void		parse_map(char *file, t_map_data *map);
+void		free_map_data(char **map_data);
 
 #endif
