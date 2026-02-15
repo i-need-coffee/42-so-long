@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/14 21:50:28 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/15 11:43:00 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 static void	fill_map_data(t_map_data *map, char *file);
 static char	*get_joined_file(int fd);
 static int	check_chars(char *map);
+static int	check_components(char *map);
 
 void	parse_map(char *file, t_map_data *map)
 {
@@ -52,16 +53,16 @@ static void	fill_map_data(t_map_data *map, char *file)
 	joined_map = get_joined_file(fd);
 	close(fd);
 	if (!joined_map)
-		error_and_exit("Problem while reading the file");
-	if (!check_chars(joined_map))
+		error_and_exit("Memory allocation fail or/and empty lines in map file");
+	if (!check_chars(joined_map) || !check_components(joined_map))
 	{
 		free(joined_map);
-		error_and_exit("There are invalid chars in the map");
+		error_and_exit("Invalid or duplicates characters in map file");
 	}
 	map->data = ft_split(joined_map, '\n');
 	free(joined_map);
 	if (!map->data)
-		error_and_exit("Problem while parsing the map");
+		error_and_exit("Memory allocation fail");
 }
 
 static char	*get_joined_file(int fd)
@@ -99,5 +100,31 @@ static int	check_chars(char *map)
 			return (0);
 		i++;
 	}
+	return (1);
+}
+
+static int	check_components(char *map)
+{
+	int		i;
+	int		count_c;
+	int		count_e;
+	int		count_p;
+
+	i = 0;
+	count_c = 0;
+	count_e = 0;
+	count_p = 0;
+	while (map[i])
+	{
+		if (map[i] == 'C')
+			count_c += 1;
+		if (map[i] == 'E')
+			count_e += 1;
+		if (map[i] == 'P')
+			count_p += 1;
+		i++;
+	}
+	if (count_c < 1 || count_e != 1 || count_p != 1)
+		return (0);
 	return (1);
 }
