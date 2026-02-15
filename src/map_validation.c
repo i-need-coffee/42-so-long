@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parsing.c                                          :+:      :+:    :+:   */
+/*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/15 18:45:25 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/15 21:23:22 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static int	check_chars(char *map);
 static int	check_components(char *map);
 static void	check_surrounding_walls(t_map_data *map);
 
-void	check_map(char *file, t_map_data *map)
+void	init_and_check_map(char *file, t_map_data *map)
 {
 	fill_map_data(map, file);
 	map->size_x = ft_strlen(map->data[0]);
@@ -122,7 +122,8 @@ static void	check_surrounding_walls(t_map_data *map)
 		}
 		else
 		{
-			if (map->data[row][0] != '1' || map->data[row][map->size_x - 1] != '1')
+			if (map->data[row][0] != '1' 
+				|| map->data[row][map->size_x - 1] != '1')
 				free_map_and_exit(map->data, "Not enclosed by walls");
 		}
 		row++;

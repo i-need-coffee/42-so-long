@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:05:54 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/15 18:53:03 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/15 21:39:11 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	free_map_data(char **map_data)
 {
 	int	i;
 
+	if (!map_data)
+		return ;
 	i = 0;
 	while (map_data[i])
 	{
