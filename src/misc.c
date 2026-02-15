@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:05:54 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/14 21:21:43 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/15 15:02:15 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,10 @@ void	free_map_data(char **map_data)
 		i++;
 	}
 	free(map_data);
+}
+
+void	free_map_and_exit(char **map_data, char *error_message)
+{
+	free_map_data(map_data);
+	error_and_exit(error_message);
 }
