@@ -6,19 +6,18 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/15 16:13:21 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/15 18:45:25 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 static void	fill_map_data(t_map_data *map, char *file);
-static char	*get_joined_file(int fd);
 static int	check_chars(char *map);
 static int	check_components(char *map);
 static void	check_surrounding_walls(t_map_data *map);
 
-void	parse_map(char *file, t_map_data *map)
+void	check_map(char *file, t_map_data *map)
 {
 	fill_map_data(map, file);
 	map->size_x = ft_strlen(map->data[0]);
@@ -59,29 +58,6 @@ static void	fill_map_data(t_map_data *map, char *file)
 	free(joined_map);
 	if (!map->data)
 		error_and_exit("Memory allocation fail");
-}
-
-static char	*get_joined_file(int fd)
-{
-	char	*line;
-	char	*temp;
-	char	*join;
-
-	join = NULL;
-	line = get_next_line(fd);
-	while (line)
-	{
-		if (line[0] == '\n')
-			return (free(line), free(join), get_next_line(-1), NULL);
-		temp = ft_strjoin(join, line);
-		free(line);
-		free(join);
-		if (!temp)
-			return (get_next_line(-1), NULL);
-		join = temp;
-		line = get_next_line(fd);
-	}
-	return (join);
 }
 
 static int	check_chars(char *map)
@@ -140,14 +116,14 @@ static void	check_surrounding_walls(t_map_data *map)
 			while (map->data[row][i])
 			{
 				if (map->data[row][i] != '1')
-					free_map_and_exit(map->data, "The map is not enclosed by walls");
+					free_map_and_exit(map->data, "Not enclosed by walls");
 				i++;
 			}
 		}
 		else
 		{
 			if (map->data[row][0] != '1' || map->data[row][map->size_x - 1] != '1')
-				free_map_and_exit(map->data, "The map is not enclosed by walls");
+				free_map_and_exit(map->data, "Not enclosed by walls");
 		}
 		row++;
 	}

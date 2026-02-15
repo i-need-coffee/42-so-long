@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 14:48:29 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/15 16:12:18 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/15 16:21:42 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*get_next_line(int fd)
 	if (fd == -1)
 		return (free_all_stash(stash), NULL);
 	if (fd < 0 || fd >= FD_MAX || BUFFER_SIZE <= 0)
-		return (free_and_null(&stash[fd]), NULL);
+		return (NULL);
 	if (!stash[fd])
 		stash[fd] = ft_strdup_gnl("");
 	if (!stash[fd])

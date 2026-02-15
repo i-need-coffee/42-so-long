@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+         #
+#    By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/02/13 13:28:21 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/02/15 18:47:08 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ SRC_DIR		= src
 SRCS		= \
 	$(SRC_DIR)/main.c \
 	$(SRC_DIR)/misc.c \
-	$(SRC_DIR)/parsing.c
+	$(SRC_DIR)/map_validation.c
 
 OBJ_DIR		= obj
 OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
