@@ -6,7 +6,7 @@
 #    By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/02/16 14:26:51 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/02/16 18:42:28 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,8 @@ SRCS		= \
 	$(SRC_DIR)/main.c \
 	$(SRC_DIR)/misc.c \
 	$(SRC_DIR)/map_validation.c \
-	$(SRC_DIR)/path_validation.c
+	$(SRC_DIR)/path_validation.c \
+	$(SRC_DIR)/display.c
 
 OBJ_DIR		= obj
 OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

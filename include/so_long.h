@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/15 20:23:44 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/16 18:49:58 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,11 +34,16 @@ typedef struct s_mlx_data
 	void	*window;
 }			t_mlx_data;
 
+# ifndef TILE_SIZE
+#  define TILE_SIZE 64
+# endif
+
 void		error_and_exit(char *error_message);
 void		init_and_check_map(char *file, t_map_data *map);
 void		free_map_data(char **map_data);
 void		free_map_and_exit(char **map_data, char *error_message);
 char		*get_joined_file(int fd);
 void		check_map_path(t_map_data *map);
+void		handle_window(t_mlx_data *mlx, t_map_data *map);
 
 #endif
