@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:58:28 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/15 23:59:31 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/16 14:23:23 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,63 +14,55 @@
 
 static void	find_player_pos(t_map_data *map);
 static char	**get_map_data_copy(t_map_data *map);
-static void	map_surroundings(char **map, int x, int y);
+static void	move_on_path(char **map, int x, int y);
 
 void	check_map_path(t_map_data *map)
 {
 	char	**map_copy;
-	int		x;
 	int		y;
-	int		i;
+	int		x;
 
 	find_player_pos(map);
 	map_copy = get_map_data_copy(map);
-	i = 0;
-	while (i < (map->size_y - 2) * (map->size_x - 2))
+	move_on_path(map_copy, map->pos_p_x, map->pos_p_y);
+	y = 0;
+	while (map_copy[y])
 	{
-		y = 0;
-		while (map_copy[y])
+		x = 0;
+		while (map_copy[y][x])
 		{
-			x = 0;
-			while (map_copy[y][x])
+			if (map_copy[y][x] == 'C' || map_copy[y][x] == 'E')
 			{
-				if (map_copy[y][x] == 'P')
-					map_surroundings(map_copy, x, y);
-				x++;
+				free_map_data(map_copy);
+				free_map_and_exit(map->data, "No valid path exists");
 			}
-			y++;
+			x++;
 		}
-		i++;
-	}
-	i = 0;
-	while (map_copy[i])
-	{
-		ft_printf("%s[%d]\n", map_copy[i], i);
-		i++;
+		y++;
 	}
 	free_map_data(map_copy);
 }
 
 static void	find_player_pos(t_map_data *map)
 {
-	int	curr_x;
-	int	curr_y;
+	int	y;
+	int	x;
 
-	curr_y = 0;
-	while (curr_y < map->size_y)
+	y = 0;
+	while (map->data[y])
 	{
-		curr_x = 0;
-		while (curr_x < map->size_x)
+		x = 0;
+		while (map->data[y][x])
 		{
-			if (map->data[curr_y][curr_x] == 'P')
+			if (map->data[y][x] == 'P')
 			{
-				map->pos_p_x = curr_x;
-				map->pos_p_y = curr_y;
-				break ;
+				map->pos_p_x = x;
+				map->pos_p_y = y;
+				return ;
 			}
-			curr_x++;
+			x++;
 		}
-		curr_y++;
+		y++;
 	}
 }
 
@@ -83,7 +75,7 @@ static char	**get_map_data_copy(t_map_data *map)
 	if (!map_copy)
 		free_map_and_exit(map->data, "Memory allocation fail");
 	i = 0;
-	while (i < map->size_y)
+	while (map->data[i])
 	{
 		map_copy[i] = ft_strdup(map->data[i]);
 		if (!map_copy[i])
@@ -98,23 +90,13 @@ static char	**get_map_data_copy(t_map_data *map)
 	return (map_copy);
 }
 
-static void	map_surroundings(char **map, int x, int y)
+static void	move_on_path(char **map, int x, int y)
 {
-	int	top;
-	int	bottom;
-	int	left;
-	int	right;
-
-	top = map[y - 1][x];
-	bottom = map[y + 1][x];
-	left = map[y][x - 1];
-	right = map[y][x + 1];
-	if (top != '1')
-		map[y - 1][x] = 'P';
-	if (bottom != '1')
-		map[y + 1][x] = 'P';
-	if (left != '1')
-		map[y][x - 1] = 'P';
-	if (right != '1')
-		map[y][x + 1] = 'P';
+	if (map[y][x] == '1')
+		return ;
+	map[y][x] = '1';
+	move_on_path(map, x + 1, y);
+	move_on_path(map, x - 1, y);
+	move_on_path(map, x, y + 1);
+	move_on_path(map, x, y - 1);
 }
