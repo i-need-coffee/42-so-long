@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:39:10 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 13:07:11 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 15:43:17 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,16 @@ void	handle_window(t_game *game)
 int	handle_input(int keysym, t_game *game)
 {
 	if (keysym == XK_Escape)
-	{
-		ft_printf("The %d key (ESC) has been pressed\n\n", keysym);
-		free_map_data(game->map);
-		mlx_destroy_window(game->mlx, game->mlx_win);
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-		exit(1);
-	}
-	ft_printf("The %d key has been pressed\n\n", keysym);
+		close_game(game);
+	return (0);
+}
+
+int	close_game(t_game *game)
+{
+	free_map_data(game->map);
+	mlx_destroy_window(game->mlx, game->mlx_win);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	exit(1);
 	return (0);
 }

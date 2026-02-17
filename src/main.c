@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 14:18:45 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 15:44:51 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	main(int argc, char **argv)
 		free_map_and_exit(game.map, "Mlx failed to be initialized");
 	handle_window(&game);
 	mlx_key_hook(game.mlx_win, handle_input, &game);
+	mlx_hook(game.mlx_win, 17, 0, close_game, &game);
 	mlx_loop(game.mlx);
+	close_game(&game);
 	return (0);
 }

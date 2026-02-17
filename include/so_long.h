@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 13:01:26 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 15:33:04 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,5 +43,6 @@ char		*get_joined_file(int fd);
 void		check_map_path(t_game *game);
 void		handle_window(t_game *game);
 int			handle_input(int keysym, t_game *game);
+int			close_game(t_game *game);
 
 #endif
