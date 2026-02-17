@@ -18,6 +18,7 @@ _This project has been created as part of the 42 curriculum by sjolliet_
 - https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#installation
 - https://42-cursus.gitbook.io/guide/2-rank-02/so_long
 - https://sethbb.itch.io/32rogues
+- https://medium.com/@digitalpoolng/42-so-long-and-thanks-for-all-the-fish-building-your-first-2d-game-in-c-ccd24034bc8b
 
 Used AI for :
 

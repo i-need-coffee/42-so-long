@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_path_validation.c                              :+:      :+:    :+:   */
+/*   path_validation.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:58:28 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/16 14:23:23 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:23:19 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	find_player_pos(t_map_data *map);
-static char	**get_map_data_copy(t_map_data *map);
+static void	find_player_pos(t_game *game);
+static char	**get_map_data_copy(t_game *game);
 static void	move_on_path(char **map, int x, int y);
 
-void	check_map_path(t_map_data *map)
+void	check_map_path(t_game *game)
 {
 	char	**map_copy;
 	int		y;
 	int		x;
 
-	find_player_pos(map);
-	map_copy = get_map_data_copy(map);
-	move_on_path(map_copy, map->pos_p_x, map->pos_p_y);
+	find_player_pos(game);
+	map_copy = get_map_data_copy(game);
+	move_on_path(map_copy, game->pos_p_x, game->pos_p_y);
 	y = 0;
 	while (map_copy[y])
 	{
@@ -34,7 +34,7 @@ void	check_map_path(t_map_data *map)
 			if (map_copy[y][x] == 'C' || map_copy[y][x] == 'E')
 			{
 				free_map_data(map_copy);
-				free_map_and_exit(map->data, "No valid path exists");
+				free_map_and_exit(game->map, "No valid path exists");
 			}
 			x++;
 		}
@@ -43,21 +43,21 @@ void	check_map_path(t_map_data *map)
 	free_map_data(map_copy);
 }
 
-static void	find_player_pos(t_map_data *map)
+static void	find_player_pos(t_game *game)
 {
 	int	y;
 	int	x;
 
 	y = 0;
-	while (map->data[y])
+	while (game->map[y])
 	{
 		x = 0;
-		while (map->data[y][x])
+		while (game->map[y][x])
 		{
-			if (map->data[y][x] == 'P')
+			if (game->map[y][x] == 'P')
 			{
-				map->pos_p_x = x;
-				map->pos_p_y = y;
+				game->pos_p_x = x;
+				game->pos_p_y = y;
 				return ;
 			}
 			x++;
@@ -66,23 +66,23 @@ static void	find_player_pos(t_map_data *map)
 	}
 }
 
-static char	**get_map_data_copy(t_map_data *map)
+static char	**get_map_data_copy(t_game *game)
 {
 	char	**map_copy;
 	int		i;
 
-	map_copy = malloc((map->size_y + 1) * sizeof(char *));
+	map_copy = malloc((game->size_y + 1) * sizeof(char *));
 	if (!map_copy)
-		free_map_and_exit(map->data, "Memory allocation fail");
+		free_map_and_exit(game->map, "Memory allocation fail");
 	i = 0;
-	while (map->data[i])
+	while (game->map[i])
 	{
-		map_copy[i] = ft_strdup(map->data[i]);
+		map_copy[i] = ft_strdup(game->map[i]);
 		if (!map_copy[i])
 		{
 			map_copy[i] = NULL;
 			free_map_data(map_copy);
-			free_map_and_exit(map->data, "Memory allocation fail");
+			free_map_and_exit(game->map, "Memory allocation fail");
 		}
 		i++;
 	}

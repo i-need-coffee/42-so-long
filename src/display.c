@@ -3,23 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:39:10 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/16 22:12:31 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:07:11 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	handle_window(t_mlx_data *mlx, t_map_data *map)
+void	handle_window(t_game *game)
 {
-	mlx->window = mlx_new_window(mlx->connect, map->size_x * TILE_SIZE, map->size_y * TILE_SIZE, "so_long");
-	if (!mlx->window)
+	game->mlx_win = mlx_new_window(game->mlx, game->size_x * TILE_SIZE,
+			game->size_y * TILE_SIZE, "so_long");
+	if (!game->mlx_win)
 	{
-		mlx_destroy_display(mlx->connect);
-		free(mlx->connect);
-		free_map_and_exit(map->data, "Window failed to be initialized");
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+		free_map_and_exit(game->map, "Window failed to be initialized");
 	}
 }
- 
+
+int	handle_input(int keysym, t_game *game)
+{
+	if (keysym == XK_Escape)
+	{
+		ft_printf("The %d key (ESC) has been pressed\n\n", keysym);
+		free_map_data(game->map);
+		mlx_destroy_window(game->mlx, game->mlx_win);
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+		exit(1);
+	}
+	ft_printf("The %d key has been pressed\n\n", keysym);
+	return (0);
+}

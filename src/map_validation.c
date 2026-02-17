@@ -3,37 +3,37 @@
 /*                                                        :::      ::::::::   */
 /*   map_validation.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/15 21:23:22 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:20:21 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-static void	fill_map_data(t_map_data *map, char *file);
+static void	fill_map_data(t_game *game, char *file);
 static int	check_chars(char *map);
 static int	check_components(char *map);
-static void	check_surrounding_walls(t_map_data *map);
+static void	check_surrounding_walls(t_game *game);
 
-void	init_and_check_map(char *file, t_map_data *map)
+void	init_and_check_map(char *file, t_game *game)
 {
-	fill_map_data(map, file);
-	map->size_x = ft_strlen(map->data[0]);
-	map->size_y = 0;
-	while (map->data[map->size_y])
+	fill_map_data(game, file);
+	game->size_x = ft_strlen(game->map[0]);
+	game->size_y = 0;
+	while (game->map[game->size_y])
 	{
-		if ((int)ft_strlen(map->data[map->size_y]) != map->size_x)
-			free_map_and_exit(map->data, "The map is not rectangular");
-		map->size_y += 1;
+		if ((int)ft_strlen(game->map[game->size_y]) != game->size_x)
+			free_map_and_exit(game->map, "The map is not rectangular");
+		game->size_y += 1;
 	}
-	if (map->size_x < 3 || map->size_y < 3)
-		free_map_and_exit(map->data, "The map is invalid");
-	check_surrounding_walls(map);
+	if (game->size_x < 3 || game->size_y < 3)
+		free_map_and_exit(game->map, "The map is invalid");
+	check_surrounding_walls(game);
 }
 
-static void	fill_map_data(t_map_data *map, char *file)
+static void	fill_map_data(t_game *game, char *file)
 {
 	char	*ext;
 	char	*joined_map;
@@ -54,9 +54,9 @@ static void	fill_map_data(t_map_data *map, char *file)
 		free(joined_map);
 		error_and_exit("Invalid or duplicates characters in map file");
 	}
-	map->data = ft_split(joined_map, '\n');
+	game->map = ft_split(joined_map, '\n');
 	free(joined_map);
-	if (!map->data)
+	if (!game->map)
 		error_and_exit("Memory allocation fail");
 }
 
@@ -78,10 +78,10 @@ static int	check_chars(char *map)
 
 static int	check_components(char *map)
 {
-	int		i;
-	int		count_c;
-	int		count_e;
-	int		count_p;
+	int	i;
+	int	count_c;
+	int	count_e;
+	int	count_p;
 
 	i = 0;
 	count_c = 0;
@@ -102,29 +102,29 @@ static int	check_components(char *map)
 	return (1);
 }
 
-static void	check_surrounding_walls(t_map_data *map)
+static void	check_surrounding_walls(t_game *game)
 {
 	int	row;
 	int	i;
 
 	row = 0;
-	while (row < map->size_y)
+	while (row < game->size_y)
 	{
-		if (row == 0 || row == (map->size_y - 1))
+		if (row == 0 || row == (game->size_y - 1))
 		{
 			i = 0;
-			while (map->data[row][i])
+			while (game->map[row][i])
 			{
-				if (map->data[row][i] != '1')
-					free_map_and_exit(map->data, "Not enclosed by walls");
+				if (game->map[row][i] != '1')
+					free_map_and_exit(game->map, "Not enclosed by walls");
 				i++;
 			}
 		}
 		else
 		{
-			if (map->data[row][0] != '1' 
-				|| map->data[row][map->size_x - 1] != '1')
-				free_map_and_exit(map->data, "Not enclosed by walls");
+			if (game->map[row][0] != '1' 
+				|| game->map[row][game->size_x - 1] != '1')
+				free_map_and_exit(game->map, "Not enclosed by walls");
 		}
 		row++;
 	}

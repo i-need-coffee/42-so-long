@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/16 18:49:58 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:01:26 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,31 +19,29 @@
 # include <libft.h>
 # include <mlx.h>
 
-typedef struct s_map_data
+typedef struct s_game
 {
-	char	**data;
+	char	**map;
 	int		size_x;
 	int		size_y;
 	int		pos_p_x;
 	int		pos_p_y;
-}			t_map_data;
-
-typedef struct s_mlx_data
-{
-	void	*connect;
-	void	*window;
-}			t_mlx_data;
+	int		num_c;
+	void	*mlx;
+	void	*mlx_win;
+}			t_game;
 
 # ifndef TILE_SIZE
 #  define TILE_SIZE 64
 # endif
 
 void		error_and_exit(char *error_message);
-void		init_and_check_map(char *file, t_map_data *map);
+void		init_and_check_map(char *file, t_game *game);
 void		free_map_data(char **map_data);
 void		free_map_and_exit(char **map_data, char *error_message);
 char		*get_joined_file(int fd);
-void		check_map_path(t_map_data *map);
-void		handle_window(t_mlx_data *mlx, t_map_data *map);
+void		check_map_path(t_game *game);
+void		handle_window(t_game *game);
+int			handle_input(int keysym, t_game *game);
 
 #endif
