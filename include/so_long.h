@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 15:33:04 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:55:25 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,11 @@ typedef struct s_game
 	int		num_c;
 	void	*mlx;
 	void	*mlx_win;
+	void	*collectible_img;
+	void	*exit_img;
+	void	*floor_img;
+	void	*player_img;
+	void	*wall_img;
 }			t_game;
 
 # ifndef TILE_SIZE
@@ -44,5 +49,7 @@ void		check_map_path(t_game *game);
 void		handle_window(t_game *game);
 int			handle_input(int keysym, t_game *game);
 int			close_game(t_game *game);
+void		init_images(t_game *game);
+void		destroy_images(t_game *game);
 
 #endif
