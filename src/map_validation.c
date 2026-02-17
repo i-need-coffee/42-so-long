@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 16:08:20 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 17:24:29 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ static void	check_chars(char *map);
 static void	check_components(char *map, t_game *game);
 static void	check_surrounding_walls(t_game *game);
 
-void	init_and_check_map(char *file, t_game *game)
+void	parse_map(char *file, t_game *game)
 {
 	fill_map_data(game, file);
 	game->size_x = ft_strlen(game->map[0]);

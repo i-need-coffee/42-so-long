@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 16:55:25 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 17:24:50 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ typedef struct s_game
 # endif
 
 void		error_and_exit(char *error_message);
-void		init_and_check_map(char *file, t_game *game);
+void		parse_map(char *file, t_game *game);
 void		free_map_data(char **map_data);
 void		free_map_and_exit(char **map_data, char *error_message);
 char		*get_joined_file(int fd);
@@ -51,5 +51,6 @@ int			handle_input(int keysym, t_game *game);
 int			close_game(t_game *game);
 void		init_images(t_game *game);
 void		destroy_images(t_game *game);
+void		init_map(t_game *game);
 
 #endif

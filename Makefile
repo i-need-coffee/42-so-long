@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+         #
+#    By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/02/16 18:42:28 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/02/17 17:34:59 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,8 @@ SRCS		= \
 	$(SRC_DIR)/misc.c \
 	$(SRC_DIR)/map_validation.c \
 	$(SRC_DIR)/path_validation.c \
-	$(SRC_DIR)/display.c
+	$(SRC_DIR)/mlx.c \
+	$(SRC_DIR)/game.c
 
 OBJ_DIR		= obj
 OBJS		= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

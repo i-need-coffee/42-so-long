@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 16:46:32 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 17:24:21 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,14 @@ int	main(int argc, char **argv)
 	if (argc != 2)
 		error_and_exit("The program should have one parameter (.ber file)");
 	ft_bzero(&game, sizeof(game));
-	init_and_check_map(argv[1], &game);
+	parse_map(argv[1], &game);
 	check_map_path(&game);
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		free_map_and_exit(game.map, "Mlx failed to be initialized");
 	handle_window(&game);
 	init_images(&game);
+	init_map(&game);
 	mlx_key_hook(game.mlx_win, handle_input, &game);
 	mlx_hook(game.mlx_win, 17, 0, close_game, &game);
 	mlx_loop(game.mlx);

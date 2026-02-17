@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   display.c                                          :+:      :+:    :+:   */
+/*   mlx.c                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:39:10 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 16:56:53 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 17:34:43 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,24 +22,6 @@ void	handle_window(t_game *game)
 		free(game->mlx);
 		free_map_and_exit(game->map, "Window failed to be initialized");
 	}
-}
-
-int	handle_input(int keysym, t_game *game)
-{
-	if (keysym == XK_Escape)
-		close_game(game);
-	return (0);
-}
-
-int	close_game(t_game *game)
-{
-	free_map_data(game->map);
-	mlx_destroy_window(game->mlx, game->mlx_win);
-	destroy_images(game);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
-	exit(1);
-	return (0);
 }
 
 void	init_images(t_game *game)
@@ -74,4 +56,15 @@ void	destroy_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->floor_img);
 	mlx_destroy_image(game->mlx, game->player_img);
 	mlx_destroy_image(game->mlx, game->wall_img);
+}
+
+int	close_game(t_game *game)
+{
+	free_map_data(game->map);
+	mlx_destroy_window(game->mlx, game->mlx_win);
+	destroy_images(game);
+	mlx_destroy_display(game->mlx);
+	free(game->mlx);
+	exit(1);
+	return (0);
 }
