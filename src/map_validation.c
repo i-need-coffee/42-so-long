@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 13:53:24 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 16:08:20 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ static void	check_chars(char *map)
 	i = 0;
 	while (map[i])
 	{
-		if (!ft_strrchr(valid_chars, map[i]))
+		if (!ft_strchr(valid_chars, map[i]))
 		{
 			free(map);
 			error_and_exit("Invalid chars in map file");
