@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 13:03:53 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/17 13:25:37 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,5 @@ int	main(int argc, char **argv)
 	handle_window(&game);
 	mlx_key_hook(game.mlx_win, handle_input, &game);
 	mlx_loop(game.mlx);
-	free_map_data(game.map);
-	mlx_destroy_window(game.mlx, game.mlx_win);
-	mlx_destroy_display(game.mlx);
-	free(game.mlx);
 	return (0);
 }
