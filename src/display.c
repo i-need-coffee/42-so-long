@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   mlx.c                                              :+:      :+:    :+:   */
+/*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:39:10 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 17:34:43 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/18 11:54:44 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,13 +58,9 @@ void	destroy_images(t_game *game)
 	mlx_destroy_image(game->mlx, game->wall_img);
 }
 
-int	close_game(t_game *game)
+void	put_img_to_window(t_game *game, void *img, int x, int y)
 {
-	free_map_data(game->map);
-	mlx_destroy_window(game->mlx, game->mlx_win);
-	destroy_images(game);
-	mlx_destroy_display(game->mlx);
-	free(game->mlx);
-	exit(1);
-	return (0);
+	x *= TILE_SIZE;
+	y *= TILE_SIZE;
+	mlx_put_image_to_window(game->mlx, game->mlx_win, img, x, y);
 }

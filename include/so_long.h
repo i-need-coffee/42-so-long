@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 17:24:50 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/18 11:54:48 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,6 @@ int			close_game(t_game *game);
 void		init_images(t_game *game);
 void		destroy_images(t_game *game);
 void		init_map(t_game *game);
+void		put_img_to_window(t_game *game, void *img, int x, int y);
 
 #endif
