@@ -6,13 +6,13 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:20:25 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/18 11:56:07 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/18 13:11:17 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	init_map(t_game *game)
+void	draw_map(t_game *game)
 {
 	int		y;
 	int		x;
