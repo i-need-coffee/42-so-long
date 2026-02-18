@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 11:45:53 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/18 11:46:22 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/18 12:11:05 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ int	close_game(t_game *game)
 	destroy_images(game);
 	mlx_destroy_display(game->mlx);
 	free(game->mlx);
-	exit(1);
+	exit(EXIT_SUCCESS);
 	return (0);
 }
