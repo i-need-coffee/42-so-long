@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/18 20:46:36 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/19 16:16:41 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ typedef struct s_game
 	int		size_y;
 	int		pos_p_x;
 	int		pos_p_y;
+	int		pos_e_x;
+	int		pos_e_y;
 	int		num_c;
 	void	*mlx;
 	void	*mlx_win;

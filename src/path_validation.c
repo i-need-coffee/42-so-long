@@ -6,13 +6,14 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 19:58:28 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 13:23:19 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/19 16:23:23 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 static void	find_player_pos(t_game *game);
+static void	find_exit_pos(t_game *game);
 static char	**get_map_data_copy(t_game *game);
 static void	move_on_path(char **map, int x, int y);
 
@@ -41,6 +42,8 @@ void	check_map_path(t_game *game)
 		y++;
 	}
 	free_map_data(map_copy);
+	find_exit_pos(game);
+	game->map[game->pos_e_y][game->pos_e_x] = '0';
 }
 
 static void	find_player_pos(t_game *game)
@@ -58,6 +61,29 @@ static void	find_player_pos(t_game *game)
 			{
 				game->pos_p_x = x;
 				game->pos_p_y = y;
+				return ;
+			}
+			x++;
+		}
+		y++;
+	}
+}
+
+static void	find_exit_pos(t_game *game)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (game->map[y])
+	{
+		x = 0;
+		while (game->map[y][x])
+		{
+			if (game->map[y][x] == 'E')
+			{
+				game->pos_e_x = x;
+				game->pos_e_y = y;
 				return ;
 			}
 			x++;
