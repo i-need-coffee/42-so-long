@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/19 14:34:15 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/19 17:48:20 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ static void	fill_map_data(t_game *game, char *file)
 	if (file[0] == '.' || ft_strrchr(file, '/')[1] == '.')
 		error_and_exit("Parameter passed is not a .ber file");
 	ext = ft_strrchr(file, '.');
-	if (!ext || ft_strncmp(ext, ".ber", ft_strlen(ext)) != 0)
+	if (!ext || ft_strncmp(ext, ".ber", 4) != 0)
 		error_and_exit("Parameter passed is not a .ber file");
 	fd = open(file, O_RDONLY);
 	if (fd == -1)
