@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/18 13:11:34 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/19 18:44:21 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ int	main(int argc, char **argv)
 	handle_window(&game);
 	init_images(&game);
 	draw_map(&game);
+	ft_printf("Starting the game...\n");
+	ft_printf("Little squirrel here is thirsty, help him!\n");
+	ft_printf("Number of movements: 0\n");
 	mlx_key_hook(game.mlx_win, handle_input, &game);
 	mlx_hook(game.mlx_win, 17, 0, close_game, &game);
 	mlx_loop(game.mlx);
