@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   map_validation.c                                   :+:      :+:    :+:   */
+/*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/17 17:24:29 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/19 14:34:15 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ static void	fill_map_data(t_game *game, char *file)
 	char	*joined_map;
 	int		fd;
 
+	if (file[0] == '.' || ft_strrchr(file, '/')[1] == '.')
+		error_and_exit("Parameter passed is not a .ber file");
 	ext = ft_strrchr(file, '.');
 	if (!ext || ft_strncmp(ext, ".ber", ft_strlen(ext)) != 0)
 		error_and_exit("Parameter passed is not a .ber file");
@@ -122,8 +124,8 @@ static void	check_surrounding_walls(t_game *game)
 		}
 		else
 		{
-			if (game->map[row][0] != '1'
-				|| game->map[row][game->size_x - 1] != '1')
+			if (game->map[row][0] != '1' || game->map[row][game->size_x
+				- 1] != '1')
 				free_map_and_exit(game->map, "Not enclosed by walls");
 		}
 		row++;
