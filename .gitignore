@@ -4,6 +4,7 @@ obj/
 
 # ===== Executables =====
 so_long
+so_long_bonus
 
 # ===== Libraries =====
 *.a
