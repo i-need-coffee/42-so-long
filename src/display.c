@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:39:10 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/18 11:54:44 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/20 13:55:46 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,4 +63,22 @@ void	put_img_to_window(t_game *game, void *img, int x, int y)
 	x *= TILE_SIZE;
 	y *= TILE_SIZE;
 	mlx_put_image_to_window(game->mlx, game->mlx_win, img, x, y);
+}
+
+void	check_map_size(t_game *game)
+{
+	int	screen_w;
+	int	screen_h;
+	int	map_w;
+	int	map_h;
+
+	map_w = game->size_x * TILE_SIZE;
+	map_h = game->size_y * TILE_SIZE;
+	mlx_get_screen_size(game->mlx, &screen_w, &screen_h);
+	if (map_w > screen_w || map_h > screen_h)
+	{
+		mlx_destroy_display(game->mlx);
+		free(game->mlx);
+		free_map_and_exit(game->map, "Map too large for screen");
+	}
 }

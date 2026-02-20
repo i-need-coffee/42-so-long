@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:05:54 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/19 15:57:08 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/20 14:16:19 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,4 +62,11 @@ char	*get_joined_file(int fd)
 		line = get_next_line(fd);
 	}
 	return (join);
+}
+
+void	print_start(void)
+{
+	ft_printf("Starting the game...\n");
+	ft_printf("Little squirrel here is thirsty, help him!\n");
+	ft_printf("Number of movements: 0\n");
 }

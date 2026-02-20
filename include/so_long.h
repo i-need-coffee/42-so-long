@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/19 18:28:50 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/20 14:16:28 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,7 @@ void		move_player_up(t_game *game);
 void		move_player_down(t_game *game);
 void		move_player_left(t_game *game);
 void		move_player_right(t_game *game);
+void		check_map_size(t_game *game);
+void		print_start(void);
 
 #endif

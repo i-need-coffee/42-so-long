@@ -25,3 +25,5 @@ Used AI for :
 - Use gimp to have a correct image format for my textures
 - AI helped me to create the makefile and link the library
 - Asked AI how to render the texttures, as in if my item, hero or monster images should have a background or could just be added on top of the floor (game design related question)
+- Learn more about flood fill for the path validation
+- Asked it to generate me many test maps to make sure i covered all cases

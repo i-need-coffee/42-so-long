@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/19 18:44:21 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/20 14:16:17 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,11 @@ int	main(int argc, char **argv)
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		free_map_and_exit(game.map, "Mlx failed to be initialized");
+	check_map_size(&game);
 	handle_window(&game);
 	init_images(&game);
 	draw_map(&game);
-	ft_printf("Starting the game...\n");
-	ft_printf("Little squirrel here is thirsty, help him!\n");
-	ft_printf("Number of movements: 0\n");
+	print_start();
 	mlx_key_hook(game.mlx_win, handle_input, &game);
 	mlx_hook(game.mlx_win, 17, 0, close_game, &game);
 	mlx_loop(game.mlx);
