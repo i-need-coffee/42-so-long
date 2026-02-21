@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   so_long_bonus.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/20 15:30:09 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/21 18:43:44 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_game
 	int		pos_e_x;
 	int		pos_e_y;
 	int		num_c;
+	int		total_c;
 	int		num_moves;
 	void	*mlx;
 	void	*mlx_win;
@@ -36,6 +37,8 @@ typedef struct s_game
 	void	*exit_img;
 	void	*floor_img;
 	void	*player_img;
+	void	*player_img_2;
+	void	*player_img_3;
 	void	*wall_img;
 }			t_game;
 
