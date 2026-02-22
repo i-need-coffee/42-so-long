@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   misc_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:05:54 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/20 15:36:31 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/22 11:55:24 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,9 +64,14 @@ char	*get_joined_file(int fd)
 	return (join);
 }
 
-void	print_start(void)
+void	display_moves(t_game *game)
 {
-	ft_printf("Starting the game...\n");
-	ft_printf("Little squirrel here is thirsty, help him!\n");
-	ft_printf("Number of movements: 0\n");
+	char	*moves;
+	char	*text;
+
+	moves = ft_itoa(game->num_moves);
+	text = ft_strjoin("Moves: ", moves);
+	free(moves);
+	mlx_string_put(game->mlx, game->mlx_win, 10, 20, 0xFFFFFF, text);
+	free(text);
 }

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   game_bonus.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 12:33:45 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/20 15:35:16 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/22 11:47:29 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,14 +75,12 @@ static int	move_player(t_game *game, int x, int y)
 	if (game->map[y][x] == 'E' && game->num_c == 0)
 	{
 		game->num_moves++;
-		ft_printf("End of game! Total movements: %d\n", game->num_moves);
 		close_game(game);
 	}
 	game->map[y][x] = 'P';
 	if (game->map[game->pos_p_y][game->pos_p_x] != 'E')
 		game->map[game->pos_p_y][game->pos_p_x] = '0';
-	draw_map(game);
 	game->num_moves++;
-	ft_printf("Number of movements: %d\n", game->num_moves);
+	draw_map(game);
 	return (1);
 }

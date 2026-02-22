@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+         #
+#    By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/02/20 16:10:52 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/02/21 18:56:53 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -92,6 +92,4 @@ re: fclean all
 
 bonus: $(NAME_BONUS)
 
-rebonus: fclean bonus
-
-.PHONY: all clean fclean re bonus rebonus
+.PHONY: all clean fclean re bonus
