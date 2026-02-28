@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/28 14:00:13 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/28 14:54:45 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,13 @@
 # include <fcntl.h>
 # include <libft.h>
 # include <mlx.h>
+
+typedef struct s_enemy
+{
+	int		x;
+	int		y;
+	int		dir;
+}			t_enemy;
 
 typedef struct s_game
 {
@@ -41,6 +48,9 @@ typedef struct s_game
 	void	*player_img_3;
 	void	*wall_img;
 	void	*enemy_img;
+	t_enemy	*enemies;
+	int		num_x;
+	int		enemy_tick;
 }			t_game;
 
 # ifndef TILE_SIZE

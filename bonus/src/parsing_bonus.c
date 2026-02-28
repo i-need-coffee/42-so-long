@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/28 13:48:08 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/28 14:54:34 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ static void	check_components(char *map, t_game *game)
 	int	count_p;
 
 	i = 0;
-	game->num_c = 0;
 	count_e = 0;
 	count_p = 0;
 	while (map[i])
@@ -95,6 +94,8 @@ static void	check_components(char *map, t_game *game)
 			count_e++;
 		if (map[i] == 'P')
 			count_p++;
+		if (map[i] == 'X')
+			game->num_x++;
 		i++;
 	}
 	if (game->num_c < 1 || count_e != 1 || count_p != 1)
