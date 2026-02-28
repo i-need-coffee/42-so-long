@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/22 11:28:28 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/28 14:00:13 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_game
 	void	*player_img_2;
 	void	*player_img_3;
 	void	*wall_img;
+	void	*enemy_img;
 }			t_game;
 
 # ifndef TILE_SIZE
@@ -58,7 +59,6 @@ int			close_game(t_game *game);
 void		init_images(t_game *game);
 void		destroy_images(t_game *game);
 void		draw_map(t_game *game);
-void		put_img_to_window(t_game *game, void *img, int x, int y);
 void		move_player_up(t_game *game);
 void		move_player_down(t_game *game);
 void		move_player_left(t_game *game);

@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/21 18:43:58 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/28 13:48:08 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,7 @@ static void	check_chars(char *map)
 	char	*valid_chars;
 	int		i;
 
-	valid_chars = "01CEP\n";
+	valid_chars = "01CEPX\n";
 	i = 0;
 	while (map[i])
 	{
