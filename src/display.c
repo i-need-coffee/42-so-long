@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   display.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:39:10 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/20 13:55:46 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/02/28 14:16:50 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ void	init_images(t_game *game)
 	if (!game->collectible_img || !game->exit_img || !game->floor_img
 		|| !game->player_img || !game->wall_img)
 	{
+		destroy_images(game);
 		mlx_destroy_window(game->mlx, game->mlx_win);
 		mlx_destroy_display(game->mlx);
 		free(game->mlx);
@@ -51,34 +52,14 @@ void	init_images(t_game *game)
 
 void	destroy_images(t_game *game)
 {
-	mlx_destroy_image(game->mlx, game->collectible_img);
-	mlx_destroy_image(game->mlx, game->exit_img);
-	mlx_destroy_image(game->mlx, game->floor_img);
-	mlx_destroy_image(game->mlx, game->player_img);
-	mlx_destroy_image(game->mlx, game->wall_img);
-}
-
-void	put_img_to_window(t_game *game, void *img, int x, int y)
-{
-	x *= TILE_SIZE;
-	y *= TILE_SIZE;
-	mlx_put_image_to_window(game->mlx, game->mlx_win, img, x, y);
-}
-
-void	check_map_size(t_game *game)
-{
-	int	screen_w;
-	int	screen_h;
-	int	map_w;
-	int	map_h;
-
-	map_w = game->size_x * TILE_SIZE;
-	map_h = game->size_y * TILE_SIZE;
-	mlx_get_screen_size(game->mlx, &screen_w, &screen_h);
-	if (map_w > screen_w || map_h > screen_h)
-	{
-		mlx_destroy_display(game->mlx);
-		free(game->mlx);
-		free_map_and_exit(game->map, "Map too large for screen");
-	}
+	if (game->collectible_img)
+		mlx_destroy_image(game->mlx, game->collectible_img);
+	if (game->exit_img)
+		mlx_destroy_image(game->mlx, game->exit_img);
+	if (game->floor_img)
+		mlx_destroy_image(game->mlx, game->floor_img);
+	if (game->player_img)
+		mlx_destroy_image(game->mlx, game->player_img);
+	if (game->wall_img)
+		mlx_destroy_image(game->mlx, game->wall_img);
 }
