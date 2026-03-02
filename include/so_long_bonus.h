@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/03/02 11:01:47 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:34:59 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <fcntl.h>
 # include <libft.h>
 # include <mlx.h>
+# include <sys/time.h>
 
 typedef struct s_enemy
 {
@@ -50,11 +51,16 @@ typedef struct s_game
 	void	*enemy_img;
 	t_enemy	*enemies;
 	int		num_x;
-	int		enemy_tick;
+	long	last_enemy_ms;
+	int		enemy_delay_ms;
 }			t_game;
 
 # ifndef TILE_SIZE
 #  define TILE_SIZE 64
+# endif
+
+# ifndef ENEMY_SPEED
+#  define ENEMY_SPEED 250
 # endif
 
 void		error_and_exit(char *error_message);
@@ -79,5 +85,6 @@ void		init_enemies(t_game *game);
 void		move_enemies(t_game *game);
 int			loop_hook(t_game *game);
 void		draw_enemies(t_game *game);
+long		now_ms(void);
 
 #endif

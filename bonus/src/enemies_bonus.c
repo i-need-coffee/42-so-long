@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 15:05:29 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/03/02 11:06:01 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:34:09 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ void	init_enemies(t_game *game)
 		}
 		y++;
 	}
+	game->enemy_delay_ms = ENEMY_SPEED;
+	game->last_enemy_ms = now_ms();
 }
 
 void	move_enemies(t_game *game)

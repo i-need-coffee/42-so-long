@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 11:45:53 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/03/02 11:18:15 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:30:56 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,11 +29,13 @@ int	handle_input(int keysym, t_game *game)
 
 int	loop_hook(t_game *game)
 {
-	game->enemy_tick++;
-	if (game->enemy_tick >= 2000)
+	long	t;
+
+	t = now_ms();
+	if (t - game->last_enemy_ms >= game->enemy_delay_ms)
 	{
 		move_enemies(game);
-		game->enemy_tick = 0;
+		game->last_enemy_ms = t;
 	}
 	draw_map(game);
 	draw_enemies(game);
