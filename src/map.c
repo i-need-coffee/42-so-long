@@ -6,13 +6,14 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:20:25 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/28 14:15:00 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:39:07 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 static void	put_img_to_window(t_game *game, void *img, int x, int y);
+static void	choose_player_img(t_game *game, int x, int y);
 
 void	draw_map(t_game *game)
 {
@@ -34,7 +35,7 @@ void	draw_map(t_game *game)
 			else if (c == 'E')
 				put_img_to_window(game, game->exit_img, x, y);
 			else if (c == 'P')
-				put_img_to_window(game, game->player_img, x, y);
+				choose_player_img(game, x, y);
 			else
 				put_img_to_window(game, game->floor_img, x, y);
 			x++;
@@ -66,4 +67,14 @@ static void	put_img_to_window(t_game *game, void *img, int x, int y)
 	x *= TILE_SIZE;
 	y *= TILE_SIZE;
 	mlx_put_image_to_window(game->mlx, game->mlx_win, img, x, y);
+}
+
+static void	choose_player_img(t_game *game, int x, int y)
+{
+	if (game->total_c == game->num_c)
+		put_img_to_window(game, game->player_img, x, y);
+	else if (game->num_c == 0)
+		put_img_to_window(game, game->player_img_3, x, y);
+	else
+		put_img_to_window(game, game->player_img_2, x, y);
 }

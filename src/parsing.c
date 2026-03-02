@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/19 17:48:20 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:36:24 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,7 +84,6 @@ static void	check_components(char *map, t_game *game)
 	int	count_p;
 
 	i = 0;
-	game->num_c = 0;
 	count_e = 0;
 	count_p = 0;
 	while (map[i])
@@ -102,6 +101,7 @@ static void	check_components(char *map, t_game *game)
 		free(map);
 		error_and_exit("Missing or duplicates chars in map file");
 	}
+	game->total_c = game->num_c;
 }
 
 static void	check_surrounding_walls(t_game *game)
