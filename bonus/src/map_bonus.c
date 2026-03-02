@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/17 17:20:25 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/28 14:12:40 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 10:58:52 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,8 +69,6 @@ static void	choose_img_to_draw(t_game *game, char c, int x, int y)
 		else
 			put_img_to_window(game, game->player_img_2, x, y);
 	}
-	else if (c == 'X')
-		put_img_to_window(game, game->enemy_img, x, y);
 	else
 		put_img_to_window(game, game->floor_img, x, y);
 }

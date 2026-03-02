@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/28 14:54:45 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:01:47 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,9 @@ void		move_player_left(t_game *game);
 void		move_player_right(t_game *game);
 void		check_map_size(t_game *game);
 void		display_moves(t_game *game);
+void		init_enemies(t_game *game);
+void		move_enemies(t_game *game);
+int			loop_hook(t_game *game);
+void		draw_enemies(t_game *game);
 
 #endif

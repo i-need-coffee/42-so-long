@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:06 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/22 11:31:11 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 10:49:14 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ int	main(int argc, char **argv)
 	ft_bzero(&game, sizeof(game));
 	parse_map(argv[1], &game);
 	check_map_path(&game);
+	init_enemies(&game);
 	game.mlx = mlx_init();
 	if (!game.mlx)
 		free_map_and_exit(game.map, "Mlx failed to be initialized");
@@ -28,6 +29,7 @@ int	main(int argc, char **argv)
 	handle_window(&game);
 	init_images(&game);
 	draw_map(&game);
+	mlx_loop_hook(game.mlx, loop_hook, &game);
 	mlx_key_hook(game.mlx_win, handle_input, &game);
 	mlx_hook(game.mlx_win, 17, 0, close_game, &game);
 	mlx_loop(game.mlx);

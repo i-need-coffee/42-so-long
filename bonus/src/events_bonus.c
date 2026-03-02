@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   events_bonus.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 11:45:53 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/20 15:35:00 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 11:18:15 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,23 @@ int	handle_input(int keysym, t_game *game)
 	return (0);
 }
 
+int	loop_hook(t_game *game)
+{
+	game->enemy_tick++;
+	if (game->enemy_tick >= 2000)
+	{
+		move_enemies(game);
+		game->enemy_tick = 0;
+	}
+	draw_map(game);
+	draw_enemies(game);
+	return (0);
+}
+
 int	close_game(t_game *game)
 {
 	free_map_data(game->map);
+	//TODO: free enemies array
 	mlx_destroy_window(game->mlx, game->mlx_win);
 	destroy_images(game);
 	mlx_destroy_display(game->mlx);
