@@ -6,11 +6,13 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/28 15:05:29 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/03/02 11:34:09 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 13:19:37 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long_bonus.h"
+
+static void	set_enemy_values(t_game *game, int i, int x, int y);
 
 void	init_enemies(t_game *game)
 {
@@ -30,10 +32,7 @@ void	init_enemies(t_game *game)
 		{
 			if (game->map[y][x] == 'X')
 			{
-				game->enemies[i].x = x;
-				game->enemies[i].y = y;
-				game->enemies[i].dir = -1;
-				game->map[y][x] = '0';
+				set_enemy_values(game, i, x, y);
 				i++;
 			}
 			x++;
@@ -56,7 +55,7 @@ void	move_enemies(t_game *game)
 		x = game->enemies[i].x + game->enemies[i].dir;
 		y = game->enemies[i].y;
 		if (x == game->pos_p_x && y == game->pos_p_y)
-			close_game(game); //TODO: add a game over that frees everything and shows a game over screen
+			game_over(game);
 		if (game->map[y][x] == '0')
 			game->enemies[i].x = x;
 		else
@@ -76,4 +75,12 @@ void	draw_enemies(t_game *game)
 			game->enemies[i].x * TILE_SIZE, game->enemies[i].y * TILE_SIZE);
 		i++;
 	}
+}
+
+static void	set_enemy_values(t_game *game, int i, int x, int y)
+{
+	game->enemies[i].x = x;
+	game->enemies[i].y = y;
+	game->enemies[i].dir = -1;
+	game->map[y][x] = '0';
 }

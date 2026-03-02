@@ -6,7 +6,7 @@
 #    By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/03/02 11:28:52 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/03/02 13:23:01 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,7 +38,8 @@ BONUS_SRCS		= \
 	$(BONUS_DIR)/map_bonus.c \
 	$(BONUS_DIR)/player_bonus.c \
 	$(BONUS_DIR)/enemies_bonus.c \
-	$(BONUS_DIR)/time_helper_bonus.c
+	$(BONUS_DIR)/time_helper_bonus.c \
+	$(BONUS_DIR)/end_screen_bonus.c
 
 OBJ_DIR			= obj
 OBJS			= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)

@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:39:10 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/28 14:02:34 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 13:20:54 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,10 +36,10 @@ void	init_images(t_game *game)
 	game->player_img_3 = load_xpm(game, "./textures/player_3.xpm");
 	game->wall_img = load_xpm(game, "./textures/wall.xpm");
 	game->enemy_img = load_xpm(game, "./textures/enemy.xpm");
-
+	game->game_over_img = load_xpm(game, "./textures/game_over.xpm");
 	if (!game->collectible_img || !game->exit_img || !game->floor_img
 		|| !game->player_img || !game->player_img_2 || !game->player_img_3
-		|| !game->wall_img || !game->enemy_img)
+		|| !game->wall_img || !game->enemy_img || !game->game_over_img)
 	{
 		destroy_images(game);
 		mlx_destroy_window(game->mlx, game->mlx_win);
@@ -67,6 +67,8 @@ void	destroy_images(t_game *game)
 		mlx_destroy_image(game->mlx, game->wall_img);
 	if (game->enemy_img)
 		mlx_destroy_image(game->mlx, game->enemy_img);
+	if (game->game_over_img)
+		mlx_destroy_image(game->mlx, game->game_over_img);
 }
 
 static void	*load_xpm(t_game *game, char *path)

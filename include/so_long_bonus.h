@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/03/02 11:34:59 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:27:17 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,12 @@ typedef struct s_game
 	void	*player_img_3;
 	void	*wall_img;
 	void	*enemy_img;
+	void	*game_over_img;
 	t_enemy	*enemies;
 	int		num_x;
 	long	last_enemy_ms;
 	int		enemy_delay_ms;
+	
 }			t_game;
 
 # ifndef TILE_SIZE
@@ -86,5 +88,6 @@ void		move_enemies(t_game *game);
 int			loop_hook(t_game *game);
 void		draw_enemies(t_game *game);
 long		now_ms(void);
+void		game_over(t_game *game);
 
 #endif
