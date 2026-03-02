@@ -6,7 +6,7 @@
 #    By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/06 11:01:29 by sjolliet          #+#    #+#              #
-#    Updated: 2026/02/21 18:56:53 by sjolliet         ###   ########.fr        #
+#    Updated: 2026/02/28 15:06:08 by sjolliet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,7 +36,8 @@ BONUS_SRCS		= \
 	$(BONUS_DIR)/events_bonus.c \
 	$(BONUS_DIR)/display_bonus.c \
 	$(BONUS_DIR)/map_bonus.c \
-	$(BONUS_DIR)/game_bonus.c
+	$(BONUS_DIR)/player_bonus.c \
+	$(BONUS_DIR)/enemies_bonus.c
 
 OBJ_DIR			= obj
 OBJS			= $(SRCS:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
