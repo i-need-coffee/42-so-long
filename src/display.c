@@ -6,11 +6,13 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/16 18:39:10 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/28 14:16:50 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:33:04 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static void	*load_xpm(t_game *game, char *path);
 
 void	handle_window(t_game *game)
 {
@@ -26,21 +28,16 @@ void	handle_window(t_game *game)
 
 void	init_images(t_game *game)
 {
-	int	tile_size;
-
-	tile_size = TILE_SIZE;
-	game->collectible_img = mlx_xpm_file_to_image(game->mlx,
-			"./textures/collectible.xpm", &tile_size, &tile_size);
-	game->exit_img = mlx_xpm_file_to_image(game->mlx, "./textures/exit.xpm",
-			&tile_size, &tile_size);
-	game->floor_img = mlx_xpm_file_to_image(game->mlx, "./textures/floor.xpm",
-			&tile_size, &tile_size);
-	game->player_img = mlx_xpm_file_to_image(game->mlx, "./textures/player.xpm",
-			&tile_size, &tile_size);
-	game->wall_img = mlx_xpm_file_to_image(game->mlx, "./textures/wall.xpm",
-			&tile_size, &tile_size);
+	game->collectible_img = load_xpm(game, "./textures/collectible.xpm");
+	game->exit_img = load_xpm(game, "./textures/exit.xpm");
+	game->floor_img = load_xpm(game, "./textures/floor.xpm");
+	game->player_img = load_xpm(game, "./textures/player.xpm");
+	game->player_img_2 = load_xpm(game, "./textures/player_2.xpm");
+	game->player_img_3 = load_xpm(game, "./textures/player_3.xpm");
+	game->wall_img = load_xpm(game, "./textures/wall.xpm");
 	if (!game->collectible_img || !game->exit_img || !game->floor_img
-		|| !game->player_img || !game->wall_img)
+		|| !game->player_img || !game->player_img_2 || !game->player_img_3
+		|| !game->wall_img)
 	{
 		destroy_images(game);
 		mlx_destroy_window(game->mlx, game->mlx_win);
@@ -60,6 +57,20 @@ void	destroy_images(t_game *game)
 		mlx_destroy_image(game->mlx, game->floor_img);
 	if (game->player_img)
 		mlx_destroy_image(game->mlx, game->player_img);
+	if (game->player_img_2)
+		mlx_destroy_image(game->mlx, game->player_img_2);
+	if (game->player_img_3)
+		mlx_destroy_image(game->mlx, game->player_img_3);
 	if (game->wall_img)
 		mlx_destroy_image(game->mlx, game->wall_img);
+}
+
+static void	*load_xpm(t_game *game, char *path)
+{
+	int	w;
+	int	h;
+
+	w = TILE_SIZE;
+	h = TILE_SIZE;
+	return (mlx_xpm_file_to_image(game->mlx, path, &w, &h));
 }

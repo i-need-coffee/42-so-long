@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/06 11:40:57 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/28 14:15:16 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/02 15:33:27 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ typedef struct s_game
 	void	*exit_img;
 	void	*floor_img;
 	void	*player_img;
+	void	*player_img_2;
+	void	*player_img_3;
 	void	*wall_img;
 }			t_game;
 
