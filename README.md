@@ -4,6 +4,34 @@ _This project has been created as part of the 42 curriculum by sjolliet_
 
 ## Description
 
+**so_long** is a small 2D game developed in C using the MiniLibX graphics library.
+
+The game uses a top-down 2D view and its goal is simple : the player needs to collect all the collectibles found on the map in order to unlock the escape and end the game.
+
+Any map can be used, as long as they respect the following rules :
+- Must be rectangular
+- Must be surrounded by walls
+- Must contain 1 player, 1 exit and at least 1 collectible
+- Must have a valid path
+- Must use the *.ber* extension
+
+The elements on the map are characters that represent the different components :
+
+| Character | Meaning |
+|-----------|----------|
+| `0` | Empty space |
+| `1` | Wall |
+| `C` | Collectible |
+| `E` | Exit |
+| `P` | Player starting position |
+
+If any errors is found, the program exits with :
+
+<pre>
+Error
+Explicit error message
+</pre>
+
 ## Instructions
 
 ## Resources
