@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   parsing.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sjolliet <sjolliet@student.42lausanne.c    +#+  +:+       +#+        */
+/*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/12 15:41:07 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/03/02 15:36:24 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/03 11:43:46 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ static void	fill_map_data(t_game *game, char *file)
 	char	*joined_map;
 	int		fd;
 
-	if (file[0] == '.' || ft_strrchr(file, '/')[1] == '.')
-		error_and_exit("Parameter passed is not a .ber file");
+	if (file[0] == '.' || (ft_strrchr(file, '/') && ft_strrchr(file, '/')[1] == '.'))
+		error_and_exit("Parameter passed is an hidden file");
 	ext = ft_strrchr(file, '.');
 	if (!ext || ft_strncmp(ext, ".ber", 4) != 0)
 		error_and_exit("Parameter passed is not a .ber file");
