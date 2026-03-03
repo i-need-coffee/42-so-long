@@ -6,7 +6,7 @@
 /*   By: sjolliet <sjolliet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/18 12:33:45 by sjolliet          #+#    #+#             */
-/*   Updated: 2026/02/19 18:47:45 by sjolliet         ###   ########.fr       */
+/*   Updated: 2026/03/03 10:25:22 by sjolliet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,6 +83,6 @@ static int	move_player(t_game *game, int x, int y)
 		game->map[game->pos_p_y][game->pos_p_x] = '0';
 	draw_map(game);
 	game->num_moves++;
-	ft_printf("Number of movements: %d\n", game->num_moves);
+	ft_printf("Number of movements: %d\r", game->num_moves);
 	return (1);
 }
