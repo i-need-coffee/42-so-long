@@ -27,12 +27,27 @@ The elements on the map are characters that represent the different components :
 
 If any errors is found, the program exits with :
 
-<pre>
+```bash
 Error
 Explicit error message
-</pre>
+```
 
 ## Instructions
+
+Clone the repository and compile the project using `make`:
+
+```bash
+git clone <repository_url>
+cd <project_name>
+make
+```
+
+Then, you can run the program by passing a *.ber* file as an argument :
+```bash
+./so_long maps/map.ber
+```
+
+Make sure that your map file follows the instructions given in the description section. or you will see an error message.
 
 ## Resources
 
