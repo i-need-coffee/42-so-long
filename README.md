@@ -47,26 +47,40 @@ Then, you can run the program by passing a *.ber* file as an argument :
 ./so_long maps/map.ber
 ```
 
-Make sure that your map file follows the instructions given in the description section. or you will see an error message.
+Make sure that your map file follows the instructions given in the description section or you will see an error message. Only one argument can be passed to run the program.
 
 ## Resources
 
-- **Introduction to the project**  
-  https://medium.com/@jalal92/understanding-the-minilibx-a-practical-dive-into-x-window-programming-api-in-c-cb8a6f72bec3  
-  This article helped me understand what the project is all about and where to start.
-- https://github.com/42paris/minilibx-linux
-- https://harm-smits.github.io/42docs/libs/minilibx
-- https://www.x.org/releases/current/doc/libX11/libX11/libX11.html
-- https://harm-smits.github.io/42docs/libs/minilibx/getting_started.html#installation
-- https://42-cursus.gitbook.io/guide/2-rank-02/so_long
-- https://sethbb.itch.io/32rogues
-- https://medium.com/@digitalpoolng/42-so-long-and-thanks-for-all-the-fish-building-your-first-2d-game-in-c-ccd24034bc8b
-https://medium.com/@ahmadbilla07/understanding-mlx-init-in-minilibx-beginner-friendly-7272b7ac9181
+- **Introduction to MiniLibX**  
+  Practical overview of X Window programming with MiniLibX  
+  https://medium.com/@jalal92/understanding-the-minilibx-a-practical-dive-into-x-window-programming-api-in-c-cb8a6f72bec3
 
-Used AI for :
+- **MiniLibX GitHub Repository**  
+  Official Linux version maintained by 42  
+  https://github.com/42paris/minilibx-linux
 
-- Use gimp to have a correct image format for my textures
-- AI helped me to create the makefile and link the library
-- Asked AI how to render the texttures, as in if my item, hero or monster images should have a background or could just be added on top of the floor (game design related question)
-- Learn more about flood fill for the path validation
-- Asked it to generate me many test maps to make sure i covered all cases
+- **MiniLibX Documentation (Harm Smits)**  
+  Clear explanations and function references  
+  https://harm-smits.github.io/42docs/libs/minilibx
+
+- **libX11 Official Documentation**  
+  Low-level X11 window system reference  
+  https://www.x.org/releases/current/doc/libX11/libX11/libX11.html
+
+- **Building Your First 2D Game (so_long article)**  
+  Project-focused explanation and walkthrough  
+  https://medium.com/@digitalpoolng/42-so-long-and-thanks-for-all-the-fish-building-your-first-2d-game-in-c-ccd24034bc8b
+
+- **Understanding `mlx_init()`**  
+  Beginner-friendly explanation of initialization  
+  https://medium.com/@ahmadbilla07/understanding-mlx-init-in-minilibx-beginner-friendly-7272b7ac9181
+
+---
+AI tools were used as learning and productivity aids for :
+
+- Generating and designing game sprites
+- Guidance on formatting sprites correctly using GIMP
+- Assistance understanding how to link MiniLibX in the Makefile
+- Learning and understanding the flood fill algorithm
+- Generating edge-case invalid maps for testing
+- Improving the structure and formatting of this README
