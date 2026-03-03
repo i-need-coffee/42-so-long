@@ -75,7 +75,6 @@ Make sure that your map file follows the instructions given in the description s
   Beginner-friendly explanation of initialization  
   https://medium.com/@ahmadbilla07/understanding-mlx-init-in-minilibx-beginner-friendly-7272b7ac9181
 
----
 AI tools were used as learning and productivity aids for :
 
 - Generating and designing game sprites
